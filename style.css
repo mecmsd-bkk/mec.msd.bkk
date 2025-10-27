@@ -1,14 +1,17 @@
-/* --- การตั้งค่าทั่วไปและฟอนต์ --- */
+/* --- การตั้งค่าทั่วไปและฟอนต์ (Light Mode - ค่าเริ่มต้น) --- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Kanit", sans-serif;
-    color: #FFFFFF;
+    font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #333;
     line-height: 1.7;
     margin: 0;
-    height: 100vh;
-    overflow-x: hidden;
-    background: linear-gradient(125deg, #ff3c41, #fc00ff, #00dbde, #00ff95);
-    background-size: 400% 400%;
-    animation: moveBackground 15s ease infinite;
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: linear-gradient(125deg, #e0c3fc, #8ec5fc, #e0c3fc);
+    background-size: 200% 200%;
+    animation: moveBackground 10s ease infinite;
+    /* เพิ่ม transition เพื่อความนุ่มนวลตอนเปลี่ยนธีม */
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 @keyframes moveBackground {
@@ -17,112 +20,133 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* --- การ์ดหลักสไตล์ Glassmorphism (ปรับปรุง) --- */
+/* --- การ์ดหลัก (Light Version) --- */
 .container {
     max-width: 800px;
     margin: 40px auto;
     padding: 30px 40px;
     border-radius: 24px;
-    background: rgba(15, 23, 42, 0.5); /* ปรับให้ทึบขึ้น */
-    backdrop-filter: blur(25px); /* ปรับให้เบลอขึ้น */
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition: background 0.4s ease, border 0.4s ease, box-shadow 0.4s ease;
+    position: relative; /* <-- (อัปเดต) เพิ่มบรรทัดนี้ */
 }
 
-/* --- ส่วนหัวข้อ (สำคัญ!) --- */
+/* --- ส่วนหัวข้อ (Light Version) --- */
 header {
-    text-align: center; /* <-- ตัวนี้คือคำสั่งจัดกลาง */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    transition: border-color 0.4s ease;
+    /* (อัปเดต) ลบ position: relative; ออกจากตรงนี้ */
 }
 
-h1, h2 {
-    color: #FFFFFF;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* ปรับปรุงเงา */
+h1 {
+    color: #1a202c;
+    font-size: 2.25rem;
+    margin-bottom: 10px;
+    text-shadow: none;
+    transition: color 0.4s ease;
 }
 
-/* เพิ่มความชัดเจนให้ข้อความธรรมดาและรายการ */
+header p {
+    color: #4a5568;
+    font-size: 1.1rem;
+    margin: 0;
+    transition: color 0.4s ease;
+}
+
 .container p, .container li {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    text-shadow: none;
+    color: #2d3748;
+    transition: color 0.4s ease;
 }
 
-/* --- สไตล์สำหรับลิงก์โดยเฉพาะ --- */
+/* --- ลิงก์ (Light Version) --- */
 .container a {
-    color: #67e8f9; /* สีฟ้า Cyan สว่าง */
+    color: #007aff;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .container a:hover {
-    color: #cffafe;
+    color: #0056b3;
     text-decoration: underline;
-    text-shadow: 0 0 8px rgba(103, 232, 249, 0.7);
+    text-shadow: none;
 }
 
-/* --- ปุ่มและส่วนที่ยุบได้สไตล์ iOS --- */
+/* --- ปุ่ม Collapsible (Light Version) --- */
 .collapsible {
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     font-family: inherit;
-    color: #FFFFFF;
-    padding: 18px;
+    color: #2d3748;
+    padding: 18px 20px;
     margin-top: 15px;
     border-radius: 12px;
     position: relative;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
 }
 
 .collapsible:hover {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
 }
 
 .collapsible.active {
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.7);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .collapsible:after {
     content: '\002B';
     font-size: 22px;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.8);
+    color: #333;
     position: absolute;
-    right: 18px;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, color 0.4s ease;
 }
 
-.collapsible.active:after {
-    transform: translateY(-50%) rotate(45deg);
-}
-
-/* --- เนื้อหาส่วนที่ยุบลงมา --- */
+/* --- เนื้อหา (Light Version) --- */
 .content {
     padding: 0 18px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    background-color: rgba(0, 0, 0, 0.2);
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out, background-color 0.4s ease, border 0.4s ease;
+    background-color: rgba(255, 255, 255, 0.3);
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: none;
 }
+
 .content p, .content ul {
-    padding: 15px 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
     margin: 0;
+}
+
+.content ul {
+    list-style-position: inside;
+    padding-left: 10px;
 }
 
 /* --- Scroll Animation (เหมือนเดิม) --- */
@@ -135,4 +159,119 @@ h1, h2 {
 .fade-in-section.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+
+/* ========================================================== */
+/* ========= 1. ปุ่มสลับธีม ================ */
+/* ========================================================== */
+#theme-toggle-btn {
+    position: absolute;
+    top: 25px; /* <-- (อัปเดต) ปรับตำแหน่ง */
+    right: 30px; /* <-- (อัปเดต) ปรับตำแหน่ง */
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: #333;
+    font-size: 1.25rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#theme-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+/* ========================================================== */
+/* ========= 2. DARK MODE STYLES ========== */
+/* ========================================================== */
+
+/* เมื่อ body มีคลาส .dark-mode ... */
+body.dark-mode {
+    color: #FFFFFF;
+    background-color: #0B1120;
+    background-image: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    background-attachment: fixed;
+    animation: none; /* ปิด animation พื้นหลังสีรุ้ง */
+}
+
+body.dark-mode .container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode h1 {
+    color: #FFFFFF;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode header p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode .container p,
+body.dark-mode .container li {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    color: #FFFFFF;
+}
+
+body.dark-mode .container a {
+    color: #a3e635; /* สีเขียวมะนาว */
+}
+
+body.dark-mode .container a:hover {
+    color: #d9f99d;
+    text-shadow: 0 0 10px rgba(163, 230, 53, 0.5);
+}
+
+body.dark-mode .collapsible {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .collapsible:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+body.dark-mode .collapsible.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+body.dark-mode .collapsible:after {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode .content {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
+}
+
+/* สไตล์ปุ่ม toggle ใน Dark Mode */
+body.dark-mode #theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFF;
+}
+
+body.dark-mode #theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
