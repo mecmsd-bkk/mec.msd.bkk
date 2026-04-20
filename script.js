@@ -58,3 +58,20 @@ themeToggleBtn.addEventListener('click', function() {
         localStorage.setItem('theme', 'light'); // บันทึกว่าเลือก light
     }
 });
+
+// --- (โค้ดใหม่) โค้ดสำหรับลิงก์ย่อยในแต่ละปีการศึกษา ---
+function toggleYearLinks(element) {
+    const isActive = element.classList.contains('active');
+    element.classList.toggle('active');
+    
+    // Adjust the main accordion's max-height to avoid cropping
+    const parentContent = element.closest('.content');
+    if (parentContent && parentContent.style.maxHeight) {
+        const currentMaxHeight = parseInt(parentContent.style.maxHeight);
+        if (!isActive) {
+            parentContent.style.maxHeight = (currentMaxHeight + 350) + "px"; 
+        } else {
+            parentContent.style.maxHeight = Math.max(currentMaxHeight - 350, parentContent.scrollHeight) + "px";
+        }
+    }
+}

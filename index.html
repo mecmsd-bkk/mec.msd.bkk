@@ -8,13 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
             <button id="theme-toggle-btn">🌙</button>
         <header>
-            <h1>ศูนย์แพทยศาสตรศึกษาชั้นคลินิกสำนักการแพทย์</h1>
+            <h1><i class='bx bx-pulse' style="color: var(--primary-color);"></i> ศูนย์แพทยศาสตรศึกษาชั้นคลินิกสำนักการแพทย์</h1>
             <p>กลุ่มงานแพทยศาสตรศึกษา สำนักงานพัฒนาระบบบริการทางการแพทย์ กรุงเทพมหานคร</p>
         </header>
 
@@ -36,31 +37,52 @@
                 </p>
             </div> 
             -->
-            
-            <button class="collapsible fade-in-section">
-                Dashboard บุคลากรกลุ่มงานแพทยศาสตรศึกษา
-            </button>
-            <div class="content">
-                <ul>
-                    <li>
-                        <strong><a href="https://mecmsd-bkk.github.io/HR-Dashboard/" target="_blank">Dashboard บุคลากรกลุ่มงานแพทยศาสตรศึกษา</a>:</strong> เว็บไซต์ระบบ
-                    </li>
-                </ul>
-            </div>
+            <div class="accordion-grid">
+                <div class="collapsible-wrapper">
+                    <button class="collapsible fade-in-section">
+                        <div class="collapsible-title"><i class='bx bx-file'></i> Dashboard บุคลากรกลุ่มงานแพทยศาสตรศึกษา</div>
+                    </button>
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <strong><a href="https://mecmsd-bkk.github.io/HR-Dashboard/" target="_blank">Dashboard บุคลากรกลุ่มงานแพทยศาสตรศึกษา</a>:</strong> เว็บไซต์ระบบ
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="collapsible-wrapper">
+                    <button class="collapsible fade-in-section">
+                        <div class="collapsible-title"><i class='bx bx-news'></i> ปฏิทินดำเนินงาน TN1-TN3  ประจำปีงบประมาณ 2569</div>
+                    </button>
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <strong><a href="https://drive.google.com/file/d/1HFgj79QVUCWB5vOIDYdiVQBGrMYn2Oio/view?usp=sharing" target="_blank">ปฏิทินดำเนินงาน TN1-TN3  ประจำปีงบประมาณ 2569</a>:</strong> pdf
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-            <button class="collapsible fade-in-section">
-                ปฏิทินดำเนินงาน TN1-TN3  ประจำปีงบประมาณ 2569
-            </button>
-            <div class="content">
-                <ul>
-                    <!-- <li>
-                        <strong><a href="#" target="_blank">#</a>:</strong> ระบบ
-                    </li> -->
-                    <li>
-                        <strong><a href="https://drive.google.com/file/d/1HFgj79QVUCWB5vOIDYdiVQBGrMYn2Oio/view?usp=sharing" target="_blank">ปฏิทินดำเนินงาน TN1-TN3  ประจำปีงบประมาณ 2569</a>:</strong> pdf
-                    </li>
-                </ul>
-            </div>                
+                <!-- <div class="collapsible-wrapper">
+                    <button class="collapsible fade-in-section">
+                        <div class="collapsible-title"><i class='bx bx-shield-plus'></i> ประกันสังคม</div>
+                    </button>
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <strong><a href="https://docs.google.com/spreadsheets/d/16dgLtOn7cBaQgG1jAraJ5fUP4hEEysGfMM4DTa2SUFY/edit?usp=sharing" target="_blank">เงินประกันสังคม ปี 2567 (20 ม.ค. 2569)</a>:</strong> Sheet
+                            </li>
+                            <li>
+                                <strong><a href="https://docs.google.com/spreadsheets/d/1aSDyj0vDmt3KevSdhJsWMRTUKKRWUM7HrDDGIES2u6U/edit?usp=sharing" target="_blank">เงินประกันสังคม ปี 2568 (UD 20 ม.ค. 69)</a>:</strong> Sheet
+                            </li>
+                            <li>
+                                <strong><a href="https://docs.google.com/spreadsheets/d/1M4as7N-pBxcPMI-fzqu4mDrVOLtIdD5JI_12jtTI7pI/edit?usp=sharing" target="_blank">เงินประกันสังคม ปี 2569 (UD 20 ม.ค. 69)</a>:</strong> Sheet
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
 
         </main>
     </div>
@@ -70,4 +92,13 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
 
