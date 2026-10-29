@@ -1,77 +1,63 @@
-// --- โค้ดสำหรับปุ่ม Collapsible ---
-var collapsibles = document.getElementsByClassName("collapsible");
-for (var i = 0; i < collapsibles.length; i++) {
-    collapsibles[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
-    });
-}
-
-// --- โค้ดสำหรับ Scroll Animation ---
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-        }
-    });
+const wrappers = [...document.querySelectorAll('.collapsible-wrapper')];
+wrappers.forEach((wrapper, index) => {
+  const button = wrapper.querySelector('.collapsible');
+  const content = wrapper.querySelector('.content');
+  content.id = `section-${index + 1}`;
+  content.hidden = true;
+  button.setAttribute('aria-controls', content.id);
+  button.setAttribute('aria-expanded', 'false');
+  button.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!expanded));
+    button.classList.toggle('active', !expanded);
+    content.hidden = expanded;
+  });
 });
-
-const elementsToFadeIn = document.querySelectorAll('.fade-in-section');
-elementsToFadeIn.forEach((el) => observer.observe(el));
-
-// --- (โค้ดใหม่) โค้ดสำหรับสลับธีม (Theme Toggle) ---
-
-// 1. หาปุ่มและ body
-const themeToggleBtn = document.getElementById('theme-toggle-btn');
-const body = document.body;
-
-// 2. (สำคัญ) ตรวจสอบธีมที่บันทึกไว้ใน localStorage เมื่อหน้าเว็บโหลด
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'dark') {
-    // ถ้าจำไว้ว่าเป็น dark mode ให้เปิด dark mode
-    body.classList.add('dark-mode');
-    themeToggleBtn.innerHTML = '☀️'; // เปลี่ยนไอคอนเป็นพระอาทิตย์
-} else {
-    // ถ้าไม่ใช่ (หรือเป็น null) ให้ใช้ light mode (ค่าเริ่มต้น)
-    body.classList.remove('dark-mode');
-    themeToggleBtn.innerHTML = '🌙'; // เปลี่ยนไอคอนเป็นพระจันทร์
-}
-
-// 3. เพิ่ม Event Listener ให้ปุ่ม
-themeToggleBtn.addEventListener('click', function() {
-    // สลับคลาส .dark-mode ที่ body
-    body.classList.toggle('dark-mode');
-
-    // 4. ตรวจสอบว่าตอนนี้เป็นธีมอะไร แล้วบันทึกลง localStorage
-    if (body.classList.contains('dark-mode')) {
-        // ถ้าตอนนี้เป็น dark mode
-        themeToggleBtn.innerHTML = '☀️'; // เปลี่ยนไอคอนเป็นพระอาทิตย์
-        localStorage.setItem('theme', 'dark'); // บันทึกว่าเลือก dark
-    } else {
-        // ถ้าตอนนี้เป็น light mode
-        themeToggleBtn.innerHTML = '🌙'; // เปลี่ยนไอคอนเป็นพระจันทร์
-        localStorage.setItem('theme', 'light'); // บันทึกว่าเลือก light
-    }
+// Keep year links keyboard accessible and independently expandable.
+document.querySelectorAll('.year-card').forEach((card, index) => {
+  card.removeAttribute('onclick');
+  const inner = card.querySelector('.year-card-inner');
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = inner.className;
+  button.innerHTML = inner.innerHTML;
+  inner.replaceWith(button);
+  const links = card.querySelector('.year-links');
+  links.id = `year-links-${index + 1}`;
+  links.hidden = true;
+  button.setAttribute('aria-controls', links.id);
+  button.setAttribute('aria-expanded', 'false');
+  button.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!expanded));
+    links.hidden = expanded;
+  });
 });
-
-// --- (โค้ดใหม่) โค้ดสำหรับลิงก์ย่อยในแต่ละปีการศึกษา ---
-function toggleYearLinks(element) {
-    const isActive = element.classList.contains('active');
-    element.classList.toggle('active');
-    
-    // Adjust the main accordion's max-height to avoid cropping
-    const parentContent = element.closest('.content');
-    if (parentContent && parentContent.style.maxHeight) {
-        const currentMaxHeight = parseInt(parentContent.style.maxHeight);
-        if (!isActive) {
-            parentContent.style.maxHeight = (currentMaxHeight + 350) + "px"; 
-        } else {
-            parentContent.style.maxHeight = Math.max(currentMaxHeight - 350, parentContent.scrollHeight) + "px";
-        }
-    }
+const search = document.getElementById('search');
+const count = document.getElementById('result-count');
+const empty = document.getElementById('empty-state');
+function filterItems() {
+  const query = search.value.trim().toLocaleLowerCase();
+  let visible = 0;
+  wrappers.forEach(wrapper => {
+    const matches = wrapper.textContent.toLocaleLowerCase().includes(query);
+    wrapper.hidden = !matches;
+    if (matches) visible++;
+  });
+  count.textContent = `${visible} รายการ`;
+  empty.hidden = visible !== 0;
 }
+search.addEventListener('input', filterItems);
+filterItems();
+const themeButton = document.getElementById('theme-toggle-btn');
+function setTheme(dark) {
+  document.body.classList.toggle('dark-mode', dark);
+  themeButton.innerHTML = `<i class='bx ${dark ? 'bx-sun' : 'bx-moon'}' aria-hidden='true'></i>`;
+  themeButton.setAttribute('aria-label', dark ? 'เปิดโหมดสว่าง' : 'เปิดโหมดมืด');
+}
+try { setTheme(localStorage.getItem('theme') === 'dark'); } catch (_) { setTheme(false); }
+themeButton.addEventListener('click', () => {
+  const dark = !document.body.classList.contains('dark-mode');
+  setTheme(dark);
+  try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (_) {}
+});

@@ -1,117 +1,36 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ศูนย์แพทยศาสตรศึกษาชั้นคลินิกสำนักการแพทย์</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#12365f">
+  <title>ศูนย์แพทยศาสตรศึกษาชั้นคลินิก | สำนักการแพทย์</title>
+  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-    <div class="container">
-            <button id="theme-toggle-btn">🌙</button>
-        <header>
-            <h1><i class='bx bx-pulse' style="color: var(--primary-color);"></i> ศูนย์แพทยศาสตรศึกษาชั้นคลินิกสำนักการแพทย์</h1>
-            <p>กลุ่มงานแพทยศาสตรศึกษา สำนักงานพัฒนาระบบบริการทางการแพทย์ กรุงเทพมหานคร</p>
-        </header>
-
-        <main>
-            
-            <!-- <h2 class="fade-in-section">ระบบใช้สำหรับกลุ่มงานแพทยศาสตรศึกษา</h2> -->
-            <p class="fade-in-section">เลือกระบบที่ท่านต้องการใช้งาน หากมีปัญหาหรือข้อสงสัยต่าง ๆ กรุณาติดต่อผู้ดูแลระบบ</p>
-
-            <!--
-            <button class="collapsible fade-in-section">
-                แสดงข้อมูลเพิ่มเติม (กดเพื่อเปิด/ปิด)
-            </button>
-            <div class="content">
-                <p>
-                    ส่วนนี้คือข้อมูลที่ถูกซ่อนไว้ในตอนแรกครับ เมื่อคุณกดปุ่มด้านบน JavaScript จะทำงานโดยการเพิ่มคลาส `active` ให้กับปุ่ม และคำนวณความสูงของเนื้อหาส่วนนี้เพื่อแสดงผลอย่างนุ่มนวลด้วย CSS Transition.
-                </p>
-                <p>
-                    คุณสามารถใส่เนื้อหาอะไรก็ได้ในนี้ เช่น รูปภาพ, ลิสต์, หรือข้อความยาวๆ ครับ
-                </p>
-            </div> 
-            -->
-            <div class="accordion-grid">
-                <div class="collapsible-wrapper">
-                    <button class="collapsible fade-in-section">
-                        <div class="collapsible-title"><i class='bx bx-file'></i> Dashboard บุคลากรกลุ่มงานแพทยศาสตรศึกษา</div>
-                    </button>
-                    <div class="content">
-                        <ul>
-                            <li>
-                                <strong><a href="https://mecmsd-bkk.github.io/HR-Dashboard/" target="_blank">Dashboard บุคลากรกลุ่มงานแพทยศาสตรศึกษา</a>:</strong> เว็บไซต์ระบบ
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="collapsible-wrapper">
-                    <button class="collapsible fade-in-section">
-                        <div class="collapsible-title"><i class='bx bx-news'></i> ระบบสถิติการอบรมอาจารย์แพทย์และบุคลากร</div>
-                    </button>
-                    <div class="content">
-                        <ul>
-                            <li>
-                                <strong><a href="https://mecmsd-bkk.github.io/M-STAT/" target="_blank">ระบบสถิติการอบรมอาจารย์แพทย์และบุคลากร</a>:</strong> เว็บไซต์ระบบ
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="collapsible-wrapper">
-                    <button class="collapsible fade-in-section">
-                        <div class="collapsible-title"><i class='bx bx-news'></i> ปฏิทินดำเนินงาน TN1-TN3  ประจำปีงบประมาณ 2569</div>
-                    </button>
-                    <div class="content">
-                        <ul>
-                            <li>
-                                <strong><a href="https://drive.google.com/file/d/1HFgj79QVUCWB5vOIDYdiVQBGrMYn2Oio/view?usp=sharing" target="_blank">ปฏิทินดำเนินงาน TN1-TN3  ประจำปีงบประมาณ 2569</a>:</strong> pdf
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- <div class="collapsible-wrapper">
-                    <button class="collapsible fade-in-section">
-                        <div class="collapsible-title"><i class='bx bx-shield-plus'></i> ประกันสังคม</div>
-                    </button>
-                    <div class="content">
-                        <ul>
-                            <li>
-                                <strong><a href="https://docs.google.com/spreadsheets/d/16dgLtOn7cBaQgG1jAraJ5fUP4hEEysGfMM4DTa2SUFY/edit?usp=sharing" target="_blank">เงินประกันสังคม ปี 2567 (20 ม.ค. 2569)</a>:</strong> Sheet
-                            </li>
-                            <li>
-                                <strong><a href="https://docs.google.com/spreadsheets/d/1aSDyj0vDmt3KevSdhJsWMRTUKKRWUM7HrDDGIES2u6U/edit?usp=sharing" target="_blank">เงินประกันสังคม ปี 2568 (UD 20 ม.ค. 69)</a>:</strong> Sheet
-                            </li>
-                            <li>
-                                <strong><a href="https://docs.google.com/spreadsheets/d/1M4as7N-pBxcPMI-fzqu4mDrVOLtIdD5JI_12jtTI7pI/edit?usp=sharing" target="_blank">เงินประกันสังคม ปี 2569 (UD 20 ม.ค. 69)</a>:</strong> Sheet
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
-            </div>
-
-        </main>
-    </div>
-
-    <script src="script.js"></script>
-
+  <div class="topbar"><div class="topbar-inner">
+    <a class="brand" href="#top"><span class="brand-mark"><i class="bx bx-pulse" aria-hidden="true"></i></span><span><b>แพทยศาสตรศึกษา</b><small>สำนักการแพทย์ กรุงเทพมหานคร</small></span></a>
+    <span class="topbar-label">ศูนย์รวมระบบงานและข้อมูล</span>
+    <button id="theme-toggle-btn" type="button" aria-label="เปิดโหมดมืด" title="สลับโหมดสี"><i class="bx bx-moon" aria-hidden="true"></i></button>
+  </div></div>
+  <div class="container" id="top">
+    <header class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> MEDICAL EDUCATION CENTER</div><h1>ศูนย์แพทยศาสตรศึกษา<br><em>ชั้นคลินิกสำนักการแพทย์</em></h1><p>กลุ่มงานแพทยศาสตรศึกษา สำนักงานพัฒนาระบบบริการทางการแพทย์ กรุงเทพมหานคร</p><div class="hero-note"><i class="bx bx-grid-alt" aria-hidden="true"></i> รวมระบบงานและข้อมูลที่จำเป็นไว้ในที่เดียว</div></div><div class="hero-art" aria-hidden="true"><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div><div class="art-cross">✳</div><div class="art-label">MEC <span>/</span> BKK</div></div></header>
+    <main>
+      <div class="section-heading"><div><div class="section-kicker">WORKSPACE DIRECTORY <span> / 01</span></div><h2>ระบบและข้อมูลที่เกี่ยวข้อง</h2><p>เลือกรายการที่ต้องการ เพื่อดูระบบและเอกสารที่เกี่ยวข้อง</p></div><div class="search-wrap"><i class="bx bx-search" aria-hidden="true"></i><label class="sr-only" for="search">ค้นหาระบบหรือข้อมูล</label><input id="search" type="search" placeholder="ค้นหาระบบหรือข้อมูล..."><kbd aria-hidden="true">⌕</kbd></div></div>
+      <div class="directory-meta"><span id="result-count" role="status" aria-live="polite"></span><span>คลิกที่รายการเพื่อดูรายละเอียด <i class="bx bx-down-arrow-alt" aria-hidden="true"></i></span></div>
+      <div class="accordion-grid">
+        <div class="collapsible-wrapper"><button class="collapsible fade-in-section" type="button"><span class="collapsible-title"><i class="bx bx-group" aria-hidden="true"></i> Dashboard บุคลากรกลุ่มงานแพทยศาสตรศึกษา</span></button><div class="content"><ul><li><strong><a href="https://mecmsd-bkk.github.io/HR-Dashboard/" target="_blank" rel="noopener noreferrer">Dashboard บุคลากรกลุ่มงานแพทยศาสตรศึกษา</a>:</strong> ข้อมูลบุคลากร</li></ul></div></div>
+        <div class="collapsible-wrapper"><button class="collapsible fade-in-section" type="button"><span class="collapsible-title"><i class="bx bx-bar-chart-alt-2" aria-hidden="true"></i> ระบบสถิติการอบรมอาจารย์แพทย์และบุคลากร</span></button><div class="content"><ul><li><strong><a href="https://mecmsd-bkk.github.io/M-STAT/" target="_blank" rel="noopener noreferrer">ระบบสถิติการอบรมอาจารย์แพทย์และบุคลากร</a>:</strong> เว็บไซต์ระบบ</li></ul></div></div>
+        <div class="collapsible-wrapper"><button class="collapsible fade-in-section" type="button"><span class="collapsible-title"><i class="bx bx-calendar" aria-hidden="true"></i> ปฏิทินดำเนินงาน TN1–TN3</span></button><div class="content"><ul><li><strong><a href="https://drive.google.com/file/d/1HFgj79QVUCWB5vOIDYdiVQBGrMYn2Oio/view?usp=sharing" target="_blank" rel="noopener noreferrer">ปฏิทินดำเนินงานประจำปีงบประมาณ 2569</a>:</strong> PDF</li></ul></div></div>
+      </div>
+      <p id="empty-state" hidden>ไม่พบรายการที่ค้นหา ลองใช้คำค้นอื่นอีกครั้ง</p>
+      <footer><span>ศูนย์แพทยศาสตรศึกษาชั้นคลินิกสำนักการแพทย์</span><span>หากมีปัญหาหรือข้อสงสัย กรุณาติดต่อผู้ดูแลระบบ</span></footer>
+    </main>
+  </div>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
